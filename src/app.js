@@ -9,9 +9,10 @@ app.use(
     })
 );
 
-app.get("/", (req, res) => {
-    console.log("Hello World!");
-    res.send("Hello");
-});
+const indexRoute = require("./routers/index");
+const todoRoute = require("./routers/todo");
+
+app.use("/", indexRoute);
+app.use("/todos", todoRoute);
 
 module.exports = app;
